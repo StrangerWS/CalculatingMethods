@@ -64,4 +64,8 @@ public class Row {
             row.add(new RowElement(new Pair<Double, Integer>(subFunction, 0), subX));
         }
     }
+
+    public void interpolateLagrange(){
+
+    }
 }
