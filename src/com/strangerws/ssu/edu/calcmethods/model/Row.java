@@ -35,7 +35,7 @@ public class Row {
     public Pair getSum(double x){
         double function = 1;
         double functionForCount = 1;
-        int count = 1;
+        int count = 0;
 
         while (Math.abs(functionForCount) >= Main.ACCURACY)
         {
@@ -59,7 +59,7 @@ public class Row {
         double subFunction;
 
         for (double i = a; i < b; i += step){
-            subX = 2 * i + step / 2;
+            subX = (2 * i + step) / 2;
             subFunction = ((double)getSum(i).getKey() + (double)getSum(i + step).getKey())/ 2;
             row.add(new RowElement(new Pair<Double, Integer>(subFunction, 0), subX));
         }
