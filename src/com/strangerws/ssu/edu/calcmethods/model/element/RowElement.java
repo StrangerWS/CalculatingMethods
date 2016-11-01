@@ -10,7 +10,14 @@ public class RowElement implements Comparable<RowElement>{
     private double x;
     private double function;
 
+    public RowElement(double x, double function) {
+        this.x = x;
+        this.function = function;
+        this.count = 0;
+    }
+
     public RowElement(Pair<Double, Integer> pair, double x){
+
         this.function = pair.getKey();
         this.count = pair.getValue();
         this.x = x;
