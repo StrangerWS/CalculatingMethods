@@ -16,6 +16,9 @@ public class Row {
     private double a;
     private double b;
 
+    public Row() {
+    }
+
     public Row(double a, double b) {
         row = new TreeSet<>();
         this.a = a;
