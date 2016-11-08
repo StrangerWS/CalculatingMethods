@@ -1,7 +1,9 @@
 package com.strangerws.ssu.edu.calcmethods;
 
+import com.strangerws.ssu.edu.calcmethods.model.GaussMatrix;
 import com.strangerws.ssu.edu.calcmethods.model.Row;
 import com.strangerws.ssu.edu.calcmethods.model.Table;
+import com.strangerws.ssu.edu.calcmethods.view.api.GaussView;
 import com.strangerws.ssu.edu.calcmethods.view.impl.MethodView;
 
 import java.util.Scanner;
@@ -18,6 +20,7 @@ public class Main {
         MethodView view = new MethodView();
         Scanner scanner = new Scanner(System.in);
 
-
+        GaussMatrix matrix = new GaussMatrix("resources/matrix.txt", "resources/vector.txt");
+        view.printGaussWithVector(matrix);
     }
 }
