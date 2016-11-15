@@ -1,8 +1,6 @@
 package com.strangerws.ssu.edu.calcmethods.view.impl;
 
-import com.strangerws.ssu.edu.calcmethods.model.GaussMatrix;
-import com.strangerws.ssu.edu.calcmethods.model.Row;
-import com.strangerws.ssu.edu.calcmethods.model.Table;
+import com.strangerws.ssu.edu.calcmethods.model.*;
 import com.strangerws.ssu.edu.calcmethods.view.api.*;
 
 import java.util.Scanner;
@@ -10,19 +8,19 @@ import java.util.Scanner;
 /**
  * Created by DobryninAM on 08.11.2016.
  */
-public class MethodView implements RowView, LagrangeView, NewtonView, GaussView, EulerView {
+public class MethodView implements RowView, LagrangeView, NewtonView, MatrixView, EulerView {
 
     @Override
-    public void printGaussLine(GaussMatrix matrix, int matrixLineNumber) {
-        for (int i = 0; i < matrix.getMatrix()[matrixLineNumber].length; i++) {
-            System.out.print(String.format("%(.4f\t", matrix.getMatrix()[matrixLineNumber][i]));
+    public void printMatrixLine(double[] line) {
+        for (int i = 0; i < line.length; i++) {
+            System.out.print(String.format("%(.4f\t", line[i]));
         }
 
         System.out.println();
     }
 
     @Override
-    public void printGaussWithVector(GaussMatrix matrix) {
+    public void printMatrixWithVector(Matrix matrix) {
         for (int i = 0; i < matrix.getMatrix().length; i++) {
             for (int j = 0; j < matrix.getMatrix().length; j++) {
                 if (matrix.getMatrix()[i][j] == -0) {
@@ -35,6 +33,25 @@ public class MethodView implements RowView, LagrangeView, NewtonView, GaussView,
         System.out.println();
     }
 
+    public void printMatrixAnswer(Matrix matrix){
+        System.out.print("  Ответ: ");
+        printMatrixLine(matrix.getAnswer());
+    }
+
+    @Override
+    public void printArrayQandP(RunMatrix matrix) {
+        System.out.print("\tМассив P: ");
+        for (int i = 1; i < matrix.getArrayP().length; i++) {
+            System.out.print(String.format("%.4f\t",  matrix.getArrayP()[i]));
+        }
+
+        System.out.print("\n\tМассив Q: ");
+        for (int i = 1; i <  matrix.getArrayQ().length; i++) {
+            System.out.print(String.format("%.4f\t",  matrix.getArrayQ()[i]));
+        }
+        System.out.println();
+        System.out.println();
+    }
 
     @Override
     public void printLagrange(Table table, Table table1, Scanner scanner) {
@@ -63,10 +80,5 @@ public class MethodView implements RowView, LagrangeView, NewtonView, GaussView,
         row.extendRow();
         row.print();
         System.out.println();
-    }
-
-    @Override
-    public void print() {
-
     }
 }

@@ -1,9 +1,7 @@
 package com.strangerws.ssu.edu.calcmethods;
 
 import com.strangerws.ssu.edu.calcmethods.model.GaussMatrix;
-import com.strangerws.ssu.edu.calcmethods.model.Row;
-import com.strangerws.ssu.edu.calcmethods.model.Table;
-import com.strangerws.ssu.edu.calcmethods.view.api.GaussView;
+import com.strangerws.ssu.edu.calcmethods.model.RunMatrix;
 import com.strangerws.ssu.edu.calcmethods.view.impl.MethodView;
 
 import java.util.Scanner;
@@ -21,6 +19,22 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         GaussMatrix matrix = new GaussMatrix("resources/matrix.txt", "resources/vector.txt");
-        view.printGaussWithVector(matrix);
+        System.out.println("Метод Гаусса");
+
+        view.printMatrixWithVector(matrix);
+        matrix.forwardStep();
+        view.printMatrixWithVector(matrix);
+        matrix.backwardStep();
+        view.printMatrixAnswer(matrix);
+
+//        RunMatrix matrix1 = new RunMatrix("resources/matrix.txt", "resources/vector.txt");
+//        System.out.println("\nМетод прогонки");
+//
+//        view.printMatrixWithVector(matrix1);
+//        matrix1.forwardStep();
+//        view.printArrayQandP(matrix1);
+//        matrix1.backwardStep();
+//        view.printMatrixAnswer(matrix);
+
     }
 }
