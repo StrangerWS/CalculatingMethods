@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Created by DobryninAM on 15.11.2016.
  */
-public class Matrix {
+public abstract class Matrix {
 
     protected double[][] matrix;
     protected double[] vector;
@@ -23,9 +23,6 @@ public class Matrix {
 
     public double[] getVector() {
         return vector;
-    }
-
-    public Matrix() {
     }
 
     public Matrix(String matrixPath, String vectorPath) {
@@ -59,5 +56,8 @@ public class Matrix {
             vector = new double[0];
         }
     }
+
+    public abstract void forwardStep();
+    public abstract void backwardStep();
 
 }

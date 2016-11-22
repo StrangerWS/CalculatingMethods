@@ -18,23 +18,5 @@ public class Main {
         MethodView view = new MethodView();
         Scanner scanner = new Scanner(System.in);
 
-        GaussMatrix matrix = new GaussMatrix("resources/matrix.txt", "resources/vector.txt");
-        System.out.println("Метод Гаусса");
-
-        view.printMatrixWithVector(matrix);
-        matrix.forwardStep();
-        view.printMatrixWithVector(matrix);
-        matrix.backwardStep();
-        view.printMatrixAnswer(matrix);
-
-//        RunMatrix matrix1 = new RunMatrix("resources/matrix.txt", "resources/vector.txt");
-//        System.out.println("\nМетод прогонки");
-//
-//        view.printMatrixWithVector(matrix1);
-//        matrix1.forwardStep();
-//        view.printArrayQandP(matrix1);
-//        matrix1.backwardStep();
-//        view.printMatrixAnswer(matrix);
-
     }
 }

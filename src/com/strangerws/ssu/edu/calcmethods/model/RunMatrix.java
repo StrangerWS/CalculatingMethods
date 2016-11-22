@@ -27,6 +27,7 @@ public class RunMatrix extends Matrix {
         answer = new double[vector.length];
     }
 
+    @Override
     public void forwardStep() {
         arrayP[1] = matrix[0][1] / -matrix[0][0];
         arrayQ[1] = -vector[0] / -matrix[0][0];
@@ -42,6 +43,7 @@ public class RunMatrix extends Matrix {
         }
     }
 
+    @Override
     public void backwardStep() {
         answer[answer.length - 1] = arrayQ[answer.length];
         for (int i = answer.length - 2; i >= 0; i--) {

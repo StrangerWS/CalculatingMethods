@@ -13,6 +13,7 @@ public class GaussMatrix extends Matrix {
         answer = new double[vector.length];
     }
 
+    @Override
     public void forwardStep() {
         int zeroCounter = 0;
         List<Integer> numbers = new ArrayList<>();
@@ -78,17 +79,9 @@ public class GaussMatrix extends Matrix {
 
         matrix[swapIndex] = tempLine;
         vector[swapIndex] = tempVector;
-
-//        double[] tempLine = matrix[indexLine];
-//        double tempVector = vector[indexLine];
-//
-//        matrix[indexLine] = matrix[indexToSwapLine];
-//        vector[indexLine] = vector[indexToSwapLine];
-//
-//        matrix[indexToSwapLine] = tempLine;
-//        vector[indexToSwapLine] = tempVector;
     }
 
+    @Override
     public void backwardStep() {
         for (int i = 0; i < matrix.length; i++) {
             int index = matrix.length - 1 - i;
