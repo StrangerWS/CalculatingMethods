@@ -64,11 +64,7 @@ public class Row {
         for (double i = a; i < b; i += step){
             subX = (2 * i + step) / 2;
             subFunction = ((double)getSum(i).getKey() + (double)getSum(i + step).getKey())/ 2;
-            row.add(new RowElement(new Pair<Double, Integer>(subFunction, 0), subX));
+            row.add(new RowElement(new Pair<>(subFunction, 0), subX));
         }
-    }
-
-    public void interpolateLagrange(){
-
     }
 }
