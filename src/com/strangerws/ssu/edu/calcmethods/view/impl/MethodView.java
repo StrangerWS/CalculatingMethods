@@ -28,12 +28,12 @@ public class MethodView implements RowView, LagrangeView, NewtonView, MatrixView
                 }
                 System.out.print(String.format("%(6.2f ", matrix.getMatrix()[i][j]));
             }
-            System.out.println(String.format(String.format("\t\t\t%(.2f", matrix.getVector()[i])));
+            System.out.println((String.format("\t\t\t%(.2f", matrix.getVector()[i])));
         }
         System.out.println();
     }
 
-    public void printMatrixAnswer(Matrix matrix){
+    public void printMatrixAnswer(Matrix matrix) {
         System.out.print("  Ответ: ");
         printMatrixLine(matrix.getAnswer());
     }
@@ -42,12 +42,12 @@ public class MethodView implements RowView, LagrangeView, NewtonView, MatrixView
     public void printArrayQandP(RunMatrix matrix) {
         System.out.print("\tМассив P: ");
         for (int i = 1; i < matrix.getArrayP().length; i++) {
-            System.out.print(String.format("%.4f\t",  matrix.getArrayP()[i]));
+            System.out.print(String.format("%.4f\t", matrix.getArrayP()[i]));
         }
 
         System.out.print("\n\tМассив Q: ");
-        for (int i = 1; i <  matrix.getArrayQ().length; i++) {
-            System.out.print(String.format("%.4f\t",  matrix.getArrayQ()[i]));
+        for (int i = 1; i < matrix.getArrayQ().length; i++) {
+            System.out.print(String.format("%.4f\t", matrix.getArrayQ()[i]));
         }
         System.out.println();
         System.out.println();
@@ -80,5 +80,10 @@ public class MethodView implements RowView, LagrangeView, NewtonView, MatrixView
         row.extendRow();
         row.print();
         System.out.println();
+    }
+
+    public void printKoshi(KoshiRow row, Scanner scanner) {
+        row = new KoshiRow(0, 12);
+        row.print();
     }
 }

@@ -23,6 +23,18 @@ public class RowElement implements Comparable<RowElement>{
         this.x = x;
     }
 
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setFunction(double function) {
+        this.function = function;
+    }
+
     public double getFunction() {
         return function;
     }

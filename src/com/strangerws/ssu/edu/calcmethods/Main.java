@@ -1,8 +1,6 @@
 package com.strangerws.ssu.edu.calcmethods;
 
-import com.strangerws.ssu.edu.calcmethods.model.GaussMatrix;
-import com.strangerws.ssu.edu.calcmethods.model.KoshiTask;
-import com.strangerws.ssu.edu.calcmethods.model.RunMatrix;
+import com.strangerws.ssu.edu.calcmethods.model.KoshiRow;
 import com.strangerws.ssu.edu.calcmethods.view.impl.MethodView;
 
 import java.util.Scanner;
@@ -18,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         MethodView view = new MethodView();
         Scanner scanner = new Scanner(System.in);
-
-        KoshiTask.doKoshi();
+        KoshiRow row = new KoshiRow();
+        view.printKoshi(row, scanner);
     }
 }
