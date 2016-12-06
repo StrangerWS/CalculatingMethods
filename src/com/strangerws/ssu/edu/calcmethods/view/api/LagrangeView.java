@@ -1,6 +1,7 @@
 package com.strangerws.ssu.edu.calcmethods.view.api;
 
 import com.strangerws.ssu.edu.calcmethods.model.Table;
+
 import java.util.Scanner;
 
 /**

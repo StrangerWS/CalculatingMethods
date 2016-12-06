@@ -1,9 +1,5 @@
 package com.strangerws.ssu.edu.calcmethods.model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 /**
  * Created by DobryninAM on 15.11.2016.
  */

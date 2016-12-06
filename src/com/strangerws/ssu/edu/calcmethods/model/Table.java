@@ -1,6 +1,7 @@
 package com.strangerws.ssu.edu.calcmethods.model;
 
 import com.strangerws.ssu.edu.calcmethods.model.element.RowElement;
+
 import java.util.ArrayList;
 import java.util.List;
 
