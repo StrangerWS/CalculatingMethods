@@ -13,13 +13,11 @@ public class KoshiRow extends Row {
 
     private List<KoshiRowElement> rowKoshi;
 
-    public KoshiRow() {
-    }
 
-    public KoshiRow(double a, double b) {
+    public KoshiRow() {
         rowKoshi = new ArrayList<>();
-        this.a = a;
-        this.b = b;
+        this.a = 0;
+        this.b = 10;
 
 
         makeRow();
@@ -27,12 +25,22 @@ public class KoshiRow extends Row {
 
     @Override
     public void makeRow() {
-        for (int i = (int) a; i < b; ++i) {
-            rowKoshi.add(new KoshiRowElement(i,
+        KoshiRowElement element = new KoshiRowElement(1, Main.VARIANT + 2);
+        element.setPreciseFunction(getPreciseFunction(1));
+        element.setEulerFunction(Main.VARIANT + 2);
+        element.setModifiedEulerFunction(Main.VARIANT + 2);
+        element.setPredictorCorrector(Main.VARIANT + 2);
+        rowKoshi.add(element);
+
+        for (int i = 2; i <= b; i++) {
+            rowKoshi.add(new KoshiRowElement(
+                    i,
+                    0,
                     getPreciseFunction(i),
-                    getEulerFunction(i - 1, (double) getSum(i - 1).getKey(), 1),
-                    getModifiedEulerFunction(i - 1, i, (double) getSum(i - 1).getKey(), 1),
-                    getPredictorCorrector(i - 1, i, (double) getSum(i - 1).getKey(), 1)));
+                    getEulerFunction(i - 1, rowKoshi.get(i - 2).getEulerFunction(), 1),
+                    getModifiedEulerFunction(i - 1, i, rowKoshi.get(i - 2).getModifiedEulerFunction(), 1),
+                    getPredictorCorrector(i - 1, i, rowKoshi.get(i - 2).getPredictorCorrector(), 1)
+            ));
         }
     }
 
@@ -62,24 +70,40 @@ public class KoshiRow extends Row {
 
     @Override
     public void print() {
+        StringBuilder xRow = new StringBuilder();
+        StringBuilder yRow = new StringBuilder();
+        StringBuilder eulerRow = new StringBuilder();
+        StringBuilder modifiedEulerRow = new StringBuilder();
+        StringBuilder predictorCorrectorRow = new StringBuilder();
+        StringBuilder accuracyEulerRow = new StringBuilder();
+        StringBuilder accuracyModifiedEulerRow = new StringBuilder();
+        StringBuilder accuracyPredictorCorrector = new StringBuilder();
+        xRow.append("x: \t\t\t\t\t\t\t");
+        yRow.append("y точн: \t\t\t\t\t");
+        eulerRow.append("y - Эйлер: \t\t\t\t\t");
+        modifiedEulerRow.append("y - мод Эйлер: \t\t\t\t");
+        predictorCorrectorRow.append("y - предиктор-корректор: \t");
+        accuracyEulerRow.append("Эйлер: \t\t\t\t\t\t");
+        accuracyModifiedEulerRow.append("мод Эйлер: \t\t\t\t\t");
+        accuracyPredictorCorrector.append("предиктор-корректор: \t\t");
         for (KoshiRowElement elem : rowKoshi) {
-            StringBuilder out = new StringBuilder();
-            out.append("Элемент x: ");
-            out.append(String.format("%(.2f", elem.getX()));
-            out.append(" Элемент y: ");
-            //Метод Эйлера
-            //out.append(elem.getEulerFunction());
-            //Модифицированный Метод Эйлера
-            //out.append(elem.getModifiedEulerFunction());
-            //Метод предиктора-корректора
-            out.append(String.format("%(.2f", elem.getPredictorCorrector()));
-            out.append(" Элемент y точн: ");
-            out.append(String.format("%(.2f", elem.getFunction()));
-            out.append(" Погрешность: ");
-            //out.append(Math.abs(elem.getEulerFunction() - elem.getFunction()));
-            //out.append(Math.abs(elem.getModifiedEulerFunction() - elem.getFunction()));
-            out.append(String.format("%(.2f", Math.abs(elem.getPredictorCorrector() - elem.getFunction())));
-            System.out.println(out);
+            xRow.append(String.format("%10d", (int) elem.getX()));
+            eulerRow.append(String.format("%10.2f", elem.getEulerFunction()));
+            modifiedEulerRow.append(String.format("%10.2f", elem.getModifiedEulerFunction()));
+            predictorCorrectorRow.append(String.format("%10.2f", elem.getPredictorCorrector()));
+            yRow.append(String.format("%10.2f", elem.getPreciseFunction()));
+            accuracyEulerRow.append(String.format("%10.2f", Math.abs(elem.getEulerFunction() - elem.getPreciseFunction())));
+            accuracyModifiedEulerRow.append(String.format("%10.2f", Math.abs(elem.getModifiedEulerFunction() - elem.getPreciseFunction())));
+            accuracyPredictorCorrector.append(String.format("%10.2f", Math.abs(elem.getPredictorCorrector() - elem.getPreciseFunction())));
         }
+        System.out.println(xRow);
+        System.out.println(eulerRow);
+        System.out.println(modifiedEulerRow);
+        System.out.println(predictorCorrectorRow);
+        System.out.println(yRow);
+        System.out.println("Погрешность:");
+        System.out.println(accuracyEulerRow);
+        System.out.println(accuracyModifiedEulerRow);
+        System.out.println(accuracyPredictorCorrector);
     }
 }

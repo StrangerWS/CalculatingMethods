@@ -7,10 +7,14 @@ import javafx.util.Pair;
  */
 public class KoshiRowElement extends RowElement {
 
+    private double preciseFunction;
     private double eulerFunction;
     private double modifiedEulerFunction;
     private double predictorCorrector;
 
+    public double getPreciseFunction() {
+        return preciseFunction;
+    }
 
     public double getEulerFunction() {
         return eulerFunction;
@@ -24,6 +28,22 @@ public class KoshiRowElement extends RowElement {
         return predictorCorrector;
     }
 
+    public void setPreciseFunction(double preciseFunction) {
+        this.preciseFunction = preciseFunction;
+    }
+
+    public void setEulerFunction(double eulerFunction) {
+        this.eulerFunction = eulerFunction;
+    }
+
+    public void setModifiedEulerFunction(double modifiedEulerFunction) {
+        this.modifiedEulerFunction = modifiedEulerFunction;
+    }
+
+    public void setPredictorCorrector(double predictorCorrector) {
+        this.predictorCorrector = predictorCorrector;
+    }
+
     public KoshiRowElement(Pair<Double, Integer> pair, double x) {
         super(pair, x);
     }
@@ -32,8 +52,9 @@ public class KoshiRowElement extends RowElement {
         super(x, function);
     }
 
-    public KoshiRowElement(double x, double function, double eulerFunction, double modifiedEulerFunction, double predictorCorrector) {
+    public KoshiRowElement(double x, double function, double preciseFunction, double eulerFunction, double modifiedEulerFunction, double predictorCorrector) {
         super(x, function);
+        this.preciseFunction = preciseFunction;
         this.eulerFunction = eulerFunction;
         this.modifiedEulerFunction = modifiedEulerFunction;
         this.predictorCorrector = predictorCorrector;

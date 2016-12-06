@@ -83,7 +83,6 @@ public class MethodView implements RowView, LagrangeView, NewtonView, MatrixView
     }
 
     public void printKoshi(KoshiRow row, Scanner scanner) {
-        row = new KoshiRow(0, 12);
         row.print();
     }
 }
