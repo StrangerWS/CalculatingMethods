@@ -1,5 +1,6 @@
 package com.strangerws.ssu.edu.calcmethods;
 
+import com.strangerws.ssu.edu.calcmethods.model.BoundaryValue;
 import com.strangerws.ssu.edu.calcmethods.model.CauchyRow;
 import com.strangerws.ssu.edu.calcmethods.view.impl.MethodView;
 
@@ -16,6 +17,8 @@ public class Main {
     public static void main(String[] args) {
         MethodView view = new MethodView();
         Scanner scanner = new Scanner(System.in);
-
+        BoundaryValue value = new BoundaryValue();
+        value.fillRows();
+        value.print();
     }
 }
