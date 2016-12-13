@@ -5,7 +5,7 @@ import javafx.util.Pair;
 /**
  * Created by DobryninAM on 29.11.2016.
  */
-public class KoshiRowElement extends RowElement {
+public class CauchyRowElement extends RowElement {
 
     private double preciseFunction;
     private double eulerFunction;
@@ -44,15 +44,15 @@ public class KoshiRowElement extends RowElement {
         this.predictorCorrector = predictorCorrector;
     }
 
-    public KoshiRowElement(Pair<Double, Integer> pair, double x) {
+    public CauchyRowElement(Pair<Double, Integer> pair, double x) {
         super(pair, x);
     }
 
-    public KoshiRowElement(double x, double function) {
+    public CauchyRowElement(double x, double function) {
         super(x, function);
     }
 
-    public KoshiRowElement(double x, double function, double preciseFunction, double eulerFunction, double modifiedEulerFunction, double predictorCorrector) {
+    public CauchyRowElement(double x, double function, double preciseFunction, double eulerFunction, double modifiedEulerFunction, double predictorCorrector) {
         super(x, function);
         this.preciseFunction = preciseFunction;
         this.eulerFunction = eulerFunction;
