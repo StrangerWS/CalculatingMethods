@@ -18,7 +18,6 @@ public class Main {
         MethodView view = new MethodView();
         Scanner scanner = new Scanner(System.in);
         BoundaryValue value = new BoundaryValue();
-        value.fillRows();
         value.print();
     }
 }

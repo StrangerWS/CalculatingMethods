@@ -57,7 +57,13 @@ public abstract class Matrix {
         }
     }
 
+    public Matrix(double[][] matrix, double[] vector) {
+        this.matrix = matrix;
+        this.vector = vector;
+    }
+
     public abstract void forwardStep();
+
     public abstract void backwardStep();
 
 }
