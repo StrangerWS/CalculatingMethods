@@ -2,6 +2,7 @@ package com.strangerws.ssu.edu.calcmethods;
 
 import com.strangerws.ssu.edu.calcmethods.model.BoundaryValue;
 import com.strangerws.ssu.edu.calcmethods.model.CauchyRow;
+import com.strangerws.ssu.edu.calcmethods.model.Integral;
 import com.strangerws.ssu.edu.calcmethods.view.impl.MethodView;
 
 import java.util.Scanner;
@@ -17,7 +18,11 @@ public class Main {
     public static void main(String[] args) {
         MethodView view = new MethodView();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Краевая задача:");
         BoundaryValue value = new BoundaryValue();
         value.print();
+        System.out.println("\n\n\n\n\nИнтегралы:");
+        Integral integral = new Integral();
+        integral.print();
     }
 }

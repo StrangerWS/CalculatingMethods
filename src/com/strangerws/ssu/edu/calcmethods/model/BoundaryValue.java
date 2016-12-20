@@ -43,7 +43,7 @@ public class BoundaryValue {
             vector[i] = getFunction(xRow[i]);
         }
 
-        gaussMethod(new GaussMatrix(matrix, vector));
+        gaussMethodSolution(new GaussMatrix(matrix, vector));
         generateYRow();
     }
 
@@ -62,11 +62,13 @@ public class BoundaryValue {
     }
 
     private double getPFunction(double x) {
-        return x * x;
+        //return x * x;
+        return Math.pow(x, 2);
     }
 
     private double getQFunction(double x) {
-        return x * x * x;
+        //return x * x * x;
+        return Math.pow(x, 3);
     }
 
     private double getYSharpSharpFunction(double x, int k) {
@@ -85,7 +87,7 @@ public class BoundaryValue {
         return Math.pow(x, 6) - END * Math.pow(x, 5) + 3 * Math.pow(x, 4) - 2 * END * Math.pow(x, 3) + 6 * x - 2 * END;
     }
 
-    private void gaussMethod(GaussMatrix matrix) {
+    private void gaussMethodSolution(GaussMatrix matrix) {
         for (int i = 0; i < matrix.getMatrix().length; i++) {
             if (matrix.getMatrix()[i][i] == 0) {
                 if (!matrix.swap(i)) {
